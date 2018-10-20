@@ -7,7 +7,7 @@ import { createStore } from "redux";
 //import App from "./components/App";
 import App from "./components/App";
 
-const initialState = ["Василий"];
+const initialState = [""];
 
 export default function reditm(state = initialState, action) {
   if (action.type === "CLIK_ITEM") {

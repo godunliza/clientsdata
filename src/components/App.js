@@ -1,36 +1,3 @@
-/*import React, { Component } from "react";
-import { connect } from "react-redux";
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-   
-    this.state = {
-      data: null,
-      active: 0,
-      term: ''
-    };
-    this.loadData();
-  }
-  getjson() {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "clients.json", false);
-    xhr.send();
-    const obj = JSON.parse(xhr.responseText);
-    obj.map((first, index) => {
-      console.log(first.general.firstName);
-    });
-    console.log(obj);
-  }
-  
-  render() {
-    return <div onClick={this.getjson}>Lala</div>;
-  }
-}
-
-export default connect(state => ({
-  state: state
-}))(App);*/
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import load from "../utils/load";
@@ -41,6 +8,7 @@ class App extends Component {
 
     this.state = {
       data: null,
+      obj: null,
       active: 0,
       term: ""
     };
@@ -56,12 +24,20 @@ class App extends Component {
     });
   }
 
-  /*updateData(config) {
+  updateData(config) {
     this.setState(config);
-  }*/
+  }
 
   render() {
-    console.log(this.state.data);
+    var general = [],
+      job = [];
+    if (this.state.data) {
+      this.state.data.map(function(obj, index) {
+        general[index] = obj.general;
+        job[index] = obj.job;
+      });
+    }
+    console.log(job[1]);
     return (
       <div>
         <ClientList data={this.state.data} />
@@ -69,6 +45,7 @@ class App extends Component {
     );
   }
 }
+
 export default connect(state => ({
   state: state
 }))(App);
