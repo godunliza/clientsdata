@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Search from "./filter";
 import load from "../utils/load";
 import ClientList from "./ClientList";
+import compon from "./compon";
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       data: null,
-      obj: null,
+      filter: null,
+      f_flag: false,
       active: 0,
       term: ""
     };
@@ -29,18 +32,25 @@ class App extends Component {
   }
 
   render() {
-    var general = [],
-      job = [];
+    var data = [];
     if (this.state.data) {
-      this.state.data.map(function(obj, index) {
-        general[index] = obj.general;
-        job[index] = obj.job;
-      });
+      data = this.state.data;
     }
-    console.log(job[1]);
+
     return (
       <div>
-        <ClientList data={this.state.data} />
+        <Search
+          term={this.state.term}
+          data={data}
+          update={this.updateData.bind(this)}
+          filter={this.state.filter}
+          f_flag={this.state.f_flag}
+        />
+        <ClientList
+          data={data}
+          filter={this.state.filter}
+          f_flag={this.state.f_flag}
+        />
       </div>
     );
   }
