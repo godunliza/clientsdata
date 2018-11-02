@@ -11,10 +11,8 @@ export default ({ term, data, update, filter, f_flag }) => {
         user.general.lastName.toLowerCase().includes(value)
       );
     });
-    console.log(filter);
 
     if (!value) {
-      console.log("Clean");
       filter = data;
     }
     update({
@@ -26,7 +24,7 @@ export default ({ term, data, update, filter, f_flag }) => {
   };
 
   return (
-    <div className="searchbar form-group">
+    <div className="searchbar form-group ">
       <input
         value={term}
         type="text"

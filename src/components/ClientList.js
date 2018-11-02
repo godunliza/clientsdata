@@ -1,45 +1,44 @@
 import React from "react";
 import { connect } from "react-redux";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Grid, Col, Row, Media } from "reactstrap";
+import "../styles.css";
 
-export default ({ data, filter, f_flag }) => {
-  console.log("DataClientList", data);
+export default ({ data, filter, f_flag, update, id_cl }) => {
   if (f_flag) {
     data = filter;
   }
+  const item_cl = e => {
+    var target = e.target;
+    if (target.tagName !== "DIV") {
+      target = target.parentNode.parentNode.parentNode;
+    }
+    update({
+      id_cl: target.id
+    });
+  };
+
   return (
-    <div>
+    <div className="client-list">
       {data.map((first, i) => {
         return (
-          <div className="container-fluid">
-            <div className="col-md-1">
-              <img src={String(first.general.avatar)} />
+          <div id={i} onClick={item_cl} className="client-list-item">
+            <div className="media  ">
+              <div className="media-left cl-list-img ">
+                <img
+                  className=" media-object cl-list-img "
+                  src={String(first.general.avatar)}
+                />
+              </div>
+              <div className="media-body">
+                <h4 className="media-heading ">
+                  {first.general.firstName} {first.general.lastName}
+                </h4>
 
-              <h3>
-                {first.general.firstName} {first.general.lastName}
-              </h3>
-
-              <h5>{first.job.title}</h5>
+                <h6 class="text-muted">{first.job.title}</h6>
+              </div>
             </div>
           </div>
         );
       })}
     </div>
-    /*<div>
-      {fio.map((first, i) => {
-        return (
-          <div className="container-fluid">
-            <div className="col-md-1">
-              <img src={String(avatar_url[i])} />
-
-              <h3>{fio[i]}</h3>
-
-              <h5>{jobname[i]}</h5>
-            </div>
-          </div>
-        );
-      })}
-    </div>*/
   );
 };

@@ -1,4 +1,33 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+body {
+  position: relative;
+}
+
+.client-list {
+  overflow: scroll;
+  height: 91vh;
+}
+.cl-list-img {
+  width: 100px;
+  border-radius: 50%;
+  margin-right: 5%;
+}
+.client-list-item {
+  height: 150px;
+  padding: 15px;
+}
+.client-list-item:hover {
+  background-color: #9ec3ef;
+  border-radius: 5px;
+}
+
+.client-details {
+  padding: 20px;
+}
+.cl-det-img {
+  width: 128px;
+  border-radius: 50%;
+  margin-right: 5%;
+}
+.cl-det-inf {
+  padding-left: 20px;
 }
