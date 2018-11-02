@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ term, data, update, filter, f_flag }) => {
+export default ({ term, data, update, filter, f_flag, id_cl }) => {
   const dataSearch = e => {
     var filter = [];
     const value = e.target.value.toLowerCase();
@@ -15,11 +15,13 @@ export default ({ term, data, update, filter, f_flag }) => {
     if (!value) {
       filter = data;
     }
+
     update({
       filter: filter,
       active: 0,
       term: value,
-      f_flag: true
+      f_flag: true,
+      id_cl: "0"
     });
   };
 

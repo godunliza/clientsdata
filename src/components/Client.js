@@ -6,13 +6,17 @@ import { faMobile } from "@fortawesome/free-solid-svg-icons";
 
 export default ({ data, id_cl, f_flag, filter }) => {
   console.log("ID", id_cl);
+
   if (!id_cl) {
     id_cl = "0";
   }
+
   if (f_flag) {
     data = filter;
   }
+
   var img, fio, job, email, phone, address;
+  var ic_m, ic_ph;
   console.log("flag", f_flag);
   console.log("Data", data);
 
@@ -35,7 +39,8 @@ export default ({ data, id_cl, f_flag, filter }) => {
           first.address.street +
           " " +
           first.address.zipCode;
-
+        ic_m = <FontAwesomeIcon icon={faAt} />;
+        ic_ph = <FontAwesomeIcon icon={faMobile} />;
         console.log(data[id_cl]);
         console.log("Person_general_map", fio, job, email, phone, address);
       }
@@ -54,10 +59,10 @@ export default ({ data, id_cl, f_flag, filter }) => {
           <h3 className="lead">{job}</h3>
 
           <p>
-            <FontAwesomeIcon icon={faAt} /> {email}
+            {ic_m} {email}
           </p>
           <p>
-            <FontAwesomeIcon icon={faMobile} /> {phone}
+            {ic_ph} {phone}
           </p>
 
           <p>{address}</p>

@@ -1,7 +1,10 @@
 body {
   position: relative;
 }
-
+.active_it{
+  background-color:#9ec3ef;
+   border-radius: 5px;
+}
 .client-list {
   overflow: scroll;
   height: 91vh;
@@ -16,8 +19,10 @@ body {
   padding: 15px;
 }
 .client-list-item:hover {
-  background-color: #9ec3ef;
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
   border-radius: 5px;
+
 }
 
 .client-details {

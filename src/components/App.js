@@ -5,11 +5,8 @@ import load from "../utils/load";
 import ClientList from "./ClientList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Client from "./Client";
-import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faAt} from '@fortawesome/free-solid-svg-icons'
 
-//library.add(faAt);
 
 class App extends Component {
   constructor(props) {
@@ -50,6 +47,9 @@ class App extends Component {
 
     if (this.state.data) {
       data = this.state.data;
+      //var f = document.getElementsByClassName("client-list-item");
+     // console.log("F", f.item(0));
+      // list_it.classList.add("it_active");
     }
 
     return (
@@ -79,6 +79,7 @@ class App extends Component {
               id_cl={this.state.id_cl}
               filter={this.state.filter}
               f_flag={this.state.f_flag}
+              id_cl={this.state.id_cl}
             />
           </div>
         </div>
