@@ -7,7 +7,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Client from "./Client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -48,14 +47,14 @@ class App extends Component {
     if (this.state.data) {
       data = this.state.data;
       //var f = document.getElementsByClassName("client-list-item");
-     // console.log("F", f.item(0));
+      // console.log("F", f.item(0));
       // list_it.classList.add("it_active");
     }
 
     return (
-      <div className="container-fluid  page">
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-md-3">
+          <div className="col-md-3 col-5">
             <Search
               term={this.state.term}
               data={data}
@@ -73,7 +72,7 @@ class App extends Component {
             />
           </div>
 
-          <div className="col-md-9">
+          <div className="col-md-9 col-7">
             <Client
               data={data}
               id_cl={this.state.id_cl}

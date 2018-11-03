@@ -48,14 +48,17 @@ export default ({ data, id_cl, f_flag, filter }) => {
   }
 
   return (
-    <div className="client-details">
+    <div className="client-details ">
       <div className="media">
         <div className="media-left">
-          <img src={img} className="cl-det-img " />
+          <img
+            src={img}
+            className="cl-det-img img-fluid d-sm-none d-md-block"
+          />
         </div>
 
-        <div className="media-body cl-det-inf">
-          <h1 className="display-2">{fio}</h1>
+        <div className="media-body cl-det-inf ">
+          <h1 className="display-4 ">{fio}</h1>
           <h3 className="lead">{job}</h3>
 
           <p>
